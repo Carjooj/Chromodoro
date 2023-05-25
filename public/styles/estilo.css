@@ -1,0 +1,28 @@
+.col .active {
+    background-color: green;
+    border-color: green;
+}
+
+.option {
+    background-color: #ff4133;
+    border-color: #d9d9d9;
+}
+
+.option:hover {
+    background-color: #b9b9b9;
+    border-color: #a9a9a9;
+}
+
+.option:first-child:active {
+    background-color: #b9b9b9;
+}
+
+#divtimer {
+    font-size: 10em;
+}
+
+.timerbtn {
+    width: 20%;
+    height: 3em;
+    font-size: 1.5em;
+}

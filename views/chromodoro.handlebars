@@ -3,7 +3,7 @@
         <div class="mx-5 px-5">
             <nav class="rounded navbar navbar-expand-lg bg-primary">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="#">Navbar</a>
+                    <a class="navbar-brand" href="#">Chromodoro</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -12,15 +12,15 @@
                     <div class="collapse navbar-collapse flex-row-reverse" id="navbarSupportedContent">
                         <div class="d-flex">
                             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                                <li class="nav-item">
+                                <li class="nav-item mx-2 mt-1">
                                     <!-- Button trigger modal -->
                                     <button type="button" class="btn btn-dark" data-bs-toggle="modal"
-                                        data-bs-target="#exampleModal">
+                                        data-bs-target="#modalconfig">
                                         Opções
                                     </button>
 
                                     <!-- Modal -->
-                                    <div class="modal fade" id="exampleModal" tabindex="-1"
+                                    <div class="modal fade" id="modalconfig" tabindex="-1"
                                         aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-scrollable">
                                             <div class="modal-content">
@@ -33,7 +33,8 @@
                                                 <div class="modal-body">
                                                     <div class="container text-center">
                                                         <legend class="form-label fs-4">Timer</legend>
-                                                        <legend class="form-label fs-5 text-start" for="labeltimer">Tempo
+                                                        <legend class="form-label fs-5 text-start" for="labeltimer">
+                                                            Tempo
                                                             (minutos)</label>
                                                             <div class="row">
                                                                 <div class="col">
@@ -69,23 +70,46 @@
                                                             <div class="d-flex flex-column mt-2">
                                                                 <div class="row">
                                                                     <div class="col-10">
-                                                                        <label class="fs-6" for="btn-toggle-auto-short">Pausas automáticas</label>
+                                                                        <label class="fs-6"
+                                                                            for="btn-toggle-auto-short">Pausa curta
+                                                                            automática</label>
                                                                     </div>
                                                                     <div class="col">
-                                                                        <input type="button" class="btn btn-primary rounded-circle" data-bs-toggle="button" value="    ">
+                                                                        <button type="button"
+                                                                            class="btn btn-primary rounded-circle option"
+                                                                            data-bs-toggle="button">&nbsp;&nbsp;&nbsp;&nbsp;</button>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                             <div class="d-flex flex-column mt-2">
                                                                 <div class="row">
                                                                     <div class="col-10">
-                                                                        <label class="fs-6" for="btn-toggle-auto-pomodoro">Pomodoros automáticos</label>
+                                                                        <label class="fs-6"
+                                                                            for="btn-toggle-auto-pomodoro">Pausa longa
+                                                                            automática</label>
                                                                     </div>
                                                                     <div class="col">
-                                                                        <input type="button" class="btn btn-primary rounded-circle" data-bs-toggle="button" value="    ">
+                                                                        <button type="button"
+                                                                            class="btn btn-primary rounded-circle option"
+                                                                            data-bs-toggle="button">&nbsp;&nbsp;&nbsp;&nbsp;</button>
                                                                     </div>
                                                                 </div>
                                                             </div>
+                                                            <div class="d-flex flex-column mt-2">
+                                                                <div class="row">
+                                                                    <div class="col-10">
+                                                                        <label class="fs-6"
+                                                                            for="btn-toggle-auto-pomodoro">Pomodoros
+                                                                            automáticos</label>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <button type="button"
+                                                                            class="btn btn-primary rounded-circle option"
+                                                                            data-bs-toggle="button">&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
@@ -95,14 +119,27 @@
                                         </div>
                                     </div>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Link</a>
+                                <li class="nav-item mx-2 mt-1">
+                                    <a class="btn btn-dark" href="/conta">Conta</a>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </nav>
+            <section class="bg-secondary mt-5">
+                <div class="d-flex justify-content-around pt-2">
+                    <button class="btn btn-primary timerbtn">Pomodoro</button>
+                    <button class="btn btn-primary timerbtn">Pausa curta</button>
+                    <button class="btn btn-primary timerbtn">Pausa longa</button>
+                </div>
+                <div class="d-flex justify-content-center" id="divtimer">
+                    25:00
+                </div>
+                <div class="d-flex justify-content-center pb-2">
+                    <button class="btn btn-primary timerbtn">Iniciar</button>
+                </div>
+            </section>
         </div>
     </div>
 </div>
