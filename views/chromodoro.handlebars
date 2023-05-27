@@ -1,9 +1,9 @@
-<div class="mx-5 px-5 py-2">
-    <div class="mx-5 px-5">
-        <div class="mx-5 px-5">
-            <nav class="rounded navbar navbar-expand-lg bg-primary">
+<div class="divexterna">
+    <div class="">
+        <div class="">
+            <nav class=" navbar navbar-expand-lg border-bottom border-white">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="#">Chromodoro</a>
+                    <a class="navbar-brand text-white" href="#">Chromodoro</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -14,11 +14,10 @@
                             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                 <li class="nav-item mx-2 mt-1">
                                     <!-- Button trigger modal -->
-                                    <button type="button" class="btn btn-dark" data-bs-toggle="modal"
+                                    <button type="button" class="btn btn-light" data-bs-toggle="modal"
                                         data-bs-target="#modalconfig">
                                         Opções
                                     </button>
-
                                     <!-- Modal -->
                                     <div class="modal fade" id="modalconfig" tabindex="-1"
                                         aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -113,33 +112,36 @@
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button type="button" class="btn btn-primary">Salvar</button>
+                                                    <button type="button" class="btn btn-primary" id="btnsaveopt">Salvar</button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </li>
                                 <li class="nav-item mx-2 mt-1">
-                                    <a class="btn btn-dark" href="/conta">Conta</a>
+                                    <a class="btn btn-light" href="/conta">Conta</a>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </nav>
-            <section class="bg-secondary mt-5">
-                <div class="d-flex justify-content-around pt-2">
-                    <button class="btn btn-primary timerbtn">Pomodoro</button>
-                    <button class="btn btn-primary timerbtn">Pausa curta</button>
-                    <button class="btn btn-primary timerbtn">Pausa longa</button>
+            <div class="timercontainer">
+                <div class="d-flex flex-column timersection">
+                    <div class="d-flex justify-content-evenly divbtn">
+                        <button class="btn btn-outline-light btn-lg timerbtn" id="btnpomodoro">Pomodoro</button>
+                        <button class="btn btn-outline-light btn-lg timerbtn" id="btnpausacurta">Pausa curta</button>
+                        <button class="btn btn-outline-light btn-lg timerbtn" id="btnpausalonga">Pausa longa</button>
+                    </div>
+                    <div class="d-flex justify-content-center text-white " id="divtimer">
+                        25:00
+                    </div>
+                    <div class="d-flex justify-content-center pb-2">
+                        <button class="btn btn-outline-light btn-lg timerbtn" id="btniniciar">Iniciar</button>
+                    </div>
                 </div>
-                <div class="d-flex justify-content-center" id="divtimer">
-                    25:00
-                </div>
-                <div class="d-flex justify-content-center pb-2">
-                    <button class="btn btn-primary timerbtn">Iniciar</button>
-                </div>
-            </section>
+            </div>
         </div>
     </div>
 </div>
+

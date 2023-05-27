@@ -1,7 +1,19 @@
+
+
+body {
+    background-color: #db5461;
+}
+
+.divexterna {
+    padding-inline: 20%;
+}
+
+
 .col .active {
     background-color: green;
     border-color: green;
 }
+
 
 .option {
     background-color: #ff4133;
@@ -9,20 +21,41 @@
 }
 
 .option:hover {
-    background-color: #b9b9b9;
-    border-color: #a9a9a9;
+    background-color: green;
+    border-color: green;
+    /*background-color: #b9b9b9;
+    border-color: #a9a9a9;*/
 }
 
 .option:first-child:active {
     background-color: #b9b9b9;
 }
 
-#divtimer {
-    font-size: 10em;
+.timercontainer {
+    padding-inline: 20%;
 }
 
-.timerbtn {
-    width: 20%;
-    height: 3em;
-    font-size: 1.5em;
+.timersection{
+    background-color: #D1717B;
+    margin-top: 20px;
+    padding: 10px;
 }
+
+#divtimer {
+    font-size: 9em;
+}
+
+
+
+.divbtn {
+    gap: 10px;
+}
+
+
+
+@media screen and (max-width: 648px) {
+    .divexterna {
+        padding-inline: 0;
+    }
+}
+/*648*/
