@@ -51,6 +51,21 @@ body {
     gap: 10px;
 }
 
+.btnsaveopt {
+    background-color: #222222;
+    border-color: #333333;
+}
+
+.btnsaveopt:hover {
+    background-color: #444444;
+    border-color: #555555;
+}
+
+.btnsaveopt:first-child:active {
+    background-color: #666666;
+    border-color: #777777;
+}
+
 
 
 @media screen and (max-width: 648px) {

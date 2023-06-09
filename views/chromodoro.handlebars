@@ -112,7 +112,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button type="button" class="btn btn-primary" id="btnsaveopt">Salvar</button>
+                                                    <button type="button" class="btn btn-primary btnsaveopt" data-bs-dismiss="modal" id="saveopt">Salvar</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -127,11 +127,11 @@
                 </div>
             </nav>
             <div class="timercontainer">
-                <div class="d-flex flex-column timersection">
+                <div class="rounded d-flex flex-column timersection">
                     <div class="d-flex justify-content-evenly divbtn">
-                        <button class="btn btn-outline-light btn-lg timerbtn" id="btnpomodoro">Pomodoro</button>
-                        <button class="btn btn-outline-light btn-lg timerbtn" id="btnpausacurta">Pausa curta</button>
-                        <button class="btn btn-outline-light btn-lg timerbtn" id="btnpausalonga">Pausa longa</button>
+                        <button class="btn btn-outline-light btn-lg timerbtn" disabled id="btnpomodoro">Pomodoro</button>
+                        <button class="btn btn-outline-light btn-lg timerbtn" disabled id="btnpausacurta">Pausa curta</button>
+                        <button class="btn btn-outline-light btn-lg timerbtn" disabled id="btnpausalonga">Pausa longa</button>
                     </div>
                     <div class="d-flex justify-content-center text-white " id="divtimer">
                         25:00
