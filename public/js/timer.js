@@ -3,11 +3,18 @@ let divtimer = document.getElementById("divtimer")
 let btnpomodoro = document.getElementById("btnpomodoro");
 let btnpausacurta = document.getElementById("btnpausacurta");
 let btnpausalonga = document.getElementById("btnpausalonga");
+let divciclo = document.getElementById("ciclo");
+let ciclomsg = document.getElementById("ciclomsg");
+let pomodoromsg = "Hora do foco!";
+let shortmsg = "Hora da pausa...";
+let longmsg = "Hora do descanso..."
+let timers = JSON.parse(localStorage.getItem("config"))
 let run = false;
 let distance = 0;
 let timerstop = 0;
+let begin = 0;
 let countDownDate = 0;
-let pomodoroconfigtimer = 2.5 * 60000;
+let pomodoroconfigtimer = timers.pomodoroValue * 60000;
 let pomodoroconfigshort = 0;
 let pomodoroconfiglong = 0;
 let restart = 0;
@@ -22,8 +29,27 @@ var now = 0;
 let ciclo = 0;
 let end = false;
 
+//guardar ciclo na localstorage
+// pinterest, lado a lado, accordion
+
 countDownDate = new Date().getTime();
-countDownDate = countDownDate + pomodoroconfigtimer;
+countDownDate = countDownDate + pomodoroconfigtimer + 1000;
+
+minutes = Math.floor((pomodoroconfigtimer % (1000 * 60 * 60)) / (1000 * 60));
+seconds = Math.floor((pomodoroconfigtimer % (1000 * 60)) / 1000);
+divtimer.innerHTML = (minutes + minutosdiff) + ":" + (seconds + segundosdiff);
+
+if (seconds < 10) {
+  divtimer.innerHTML = (minutes + minutosdiff) + ":" + "0" + (seconds + segundosdiff);
+}
+
+if (minutes < 10) {
+  divtimer.innerHTML = "0" + (minutes + minutosdiff) + ":" + (seconds + segundosdiff);
+  if (seconds < 10) {
+    divtimer.innerHTML = "0" + (minutes + minutosdiff) + ":" + "0" + (seconds + segundosdiff);
+  }
+
+}
 
 
 btnpausacurta.toggleAttribute("disabled");
@@ -32,11 +58,15 @@ btnpausalonga.toggleAttribute("disabled");
 btnpomodoro.onclick = function () {
   if (end) {
     ciclo += 1;
+    divciclo.innerHTML = ciclo + "#"
+    localStorage.setItem("ciclo", divciclo.innerHTML);
   }
+  ciclomsg.innerHTML = pomodoromsg;
+  timers = JSON.parse(localStorage.getItem("config"))
   restart = 0;
   run = false;
   btninciar.innerHTML = "Iniciar"
-  pomodoroconfigtimer = 0.2 * 60000
+  pomodoroconfigtimer = timers.pomodoroValue * 60000
   pomodoroconfigshort = 0;
   pomodoroconfiglong = 0
   countDownDate = new Date().getTime();
@@ -65,12 +95,14 @@ btnpomodoro.onclick = function () {
 
 
 btnpausacurta.onclick = function () {
+  ciclomsg.innerHTML = shortmsg;
+  timers = JSON.parse(localStorage.getItem("config"))
   console.log("click")
   restart = 0;
   run = false;
   btninciar.innerHTML = "Iniciar"
   pomodoroconfigtimer = 0;
-  pomodoroconfigshort = 0.1 * 60000;
+  pomodoroconfigshort = timers.shortValue * 60000;
   pomodoroconfiglong = 0
   countDownDate = new Date().getTime();
   countDownDate = countDownDate + pomodoroconfigshort;
@@ -98,12 +130,14 @@ btnpausacurta.onclick = function () {
 
 
 btnpausalonga.onclick = function () {
+  ciclomsg.innerHTML = longmsg;
+  timers = JSON.parse(localStorage.getItem("config"))
   restart = 0;
   run = false;
   btninciar.innerHTML = "Iniciar"
   pomodoroconfigtimer = 0;
   pomodoroconfigshort = 0;
-  pomodoroconfiglong = 0.3 * 60000;
+  pomodoroconfiglong = timers.longValue * 60000;
   countDownDate = new Date().getTime();
   countDownDate = countDownDate + pomodoroconfiglong;
   distance = countDownDate - now + restart;
@@ -187,19 +221,32 @@ var pomodoro = setInterval(function () {
       end = false;
       if (ciclo % 4 == 0 && ciclo > 0) {
         btnpausalonga.click();
+        if (timers.autolong.pressed === "true") {
+          btninciar.click();
+        }
       } else {
         btnpausacurta.click();
+        if (timers.autoshort.pressed === "true") {
+          console.log("if")
+          btninciar.click();
+        } 
       }
       return;
     }
     if (pomodoroconfigshort > 0) {
       end = true;
       btnpomodoro.click();
+      if (timers.autopomodoro.pressed === "true") {
+        btninciar.click();
+      }
       return;
     }
     if (pomodoroconfiglong > 0) {
       end = true;
       btnpomodoro.click();
+      if (timers.autopomodoro.pressed === "true") {
+        btninciar.click();
+      }
     }
     /* como saber se ta na pausa curta? 
     pomorodoconfigshort?

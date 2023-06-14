@@ -76,7 +76,8 @@
                                                                     <div class="col">
                                                                         <button type="button"
                                                                             class="btn btn-primary rounded-circle option"
-                                                                            data-bs-toggle="button">&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                                                                            data-bs-toggle="button" aria-pressed="false"
+                                                                            id="autoshort">&nbsp;&nbsp;&nbsp;&nbsp;</button>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -90,7 +91,8 @@
                                                                     <div class="col">
                                                                         <button type="button"
                                                                             class="btn btn-primary rounded-circle option"
-                                                                            data-bs-toggle="button">&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                                                                            data-bs-toggle="button" aria-pressed="false"
+                                                                            id="autolong">&nbsp;&nbsp;&nbsp;&nbsp;</button>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -104,7 +106,8 @@
                                                                     <div class="col">
                                                                         <button type="button"
                                                                             class="btn btn-primary rounded-circle option"
-                                                                            data-bs-toggle="button">&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                                                                            data-bs-toggle="button" aria-pressed="false"
+                                                                            id="autopomodoro">&nbsp;&nbsp;&nbsp;&nbsp;</button>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -112,7 +115,8 @@
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button type="button" class="btn btn-primary btnsaveopt" data-bs-dismiss="modal" id="saveopt">Salvar</button>
+                                                    <button type="button" class="btn btn-primary btnsaveopt"
+                                                        data-bs-dismiss="modal" id="saveopt">Salvar</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -129,9 +133,12 @@
             <div class="timercontainer">
                 <div class="rounded d-flex flex-column timersection">
                     <div class="d-flex justify-content-evenly divbtn">
-                        <button class="btn btn-outline-light btn-lg timerbtn" disabled id="btnpomodoro">Pomodoro</button>
-                        <button class="btn btn-outline-light btn-lg timerbtn" disabled id="btnpausacurta">Pausa curta</button>
-                        <button class="btn btn-outline-light btn-lg timerbtn" disabled id="btnpausalonga">Pausa longa</button>
+                        <button class="btn btn-outline-light btn-lg timerbtn" disabled
+                            id="btnpomodoro">Pomodoro</button>
+                        <button class="btn btn-outline-light btn-lg timerbtn" disabled id="btnpausacurta">Pausa
+                            curta</button>
+                        <button class="btn btn-outline-light btn-lg timerbtn" disabled id="btnpausalonga">Pausa
+                            longa</button>
                     </div>
                     <div class="d-flex justify-content-center text-white " id="divtimer">
                         25:00
@@ -141,7 +148,76 @@
                     </div>
                 </div>
             </div>
+            <div class="d-flex justify-content-center fs-4 pt-3">
+                <div class="text-white" id="ciclo" data-bs-toggle="modal" data-bs-target="#cicloconfirm">
+                    0#
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" id="cicloconfirm" tabindex="-1" aria-labelledby="cicloconfirm"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Aviso</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Você deseja redefinir a contagem de ciclos pomodoro?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary btnsaveopt" data-bs-dismiss="modal"
+                                    id="btncicloreset">Confirmar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center text-white fs-5 pt-1" id="ciclomsg">
+                Hora do foco!
+            </div>
+            <div class="divexterna">
+                <ul class="nav nav-tabs pt-3" id="tabpt" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#tarefastab"
+                            type="button" role="tab" aria-controls="tarefastab" aria-selected="true">Tarefas</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#projetostab"
+                            type="button" role="tab" aria-controls="projetostab" aria-selected="false">Projetos</button>
+                    </li>
+                </ul>
+                <div class="tab-content" id="tabcontent">
+                    <div class="tab-pane fade show active" id="tarefastab" role="tabpanel" aria-labelledby="tarefastab"
+                        tabindex="0">
+                        <div class="d-flex justify-content-center py-2">
+                            <img src="/images/plusicon.svg" alt="Icone mais" id="addtarefa">
+                        </div>
+                        <form action="/add" method="post" class="rounded pt-3" id="formtarefa">
+                            <div class="row">
+                                <div class="col-9">
+                                    <input type="text" class="form-control" placeholder="Nome da tarefa"
+                                        aria-label="Nome da tarefa" name="nometarefa" id="nometarefa">
+                                </div>
+                                <div class="col">
+                                    <input type="number" class="form-control" placeholder="Est Pomodoro"
+                                        aria-label="Est Pomodoro" name="estpomodoro" id="estpomodoro">
+                                </div>
+                            </div>
+                            <div class="pt-3">
+                                <textarea name="descricao" id="desc" cols="10" rows="5" class="form-control"
+                                    placeholder="Descreva sua tarefa" maxlength="500"></textarea>
+                            </div>
+                            <div class="d-flex justify-content-end pt-2">
+                                <button class="btn btn-light mx-1" type="reset" id="btnlimpar">Cancelar</button>
+                                <button class="btn btn-light" type="submit" id="btnsalvar">Salvar</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="tab-pane fade" id="projetostab" role="tabpanel" aria-labelledby="projetostab"
+                        tabindex="0">projetos ficam aqui</div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
-

@@ -9,7 +9,7 @@ body {
 }
 
 
-.col .active {
+.col .btn.active {
     background-color: green;
     border-color: green;
 }
@@ -64,6 +64,29 @@ body {
 .btnsaveopt:first-child:active {
     background-color: #666666;
     border-color: #777777;
+}
+
+#ciclo, #addtarefa {
+    cursor: pointer;
+}
+
+.nav-link {
+    color: white;
+}
+
+.nav-link:hover {
+    color: black;
+}
+
+.form-control:focus {
+    border-color: #D1717B;
+    box-shadow: 0 0 0 0.25rem rgba(209, 113, 123, 1);
+}
+
+#formtarefa {
+    display: none;
+    background-color: #D1717B;
+    padding: 10px;
 }
 
 
