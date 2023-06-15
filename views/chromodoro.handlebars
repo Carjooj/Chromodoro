@@ -193,7 +193,7 @@
                         <div class="d-flex justify-content-center py-2">
                             <img src="/images/plusicon.svg" alt="Icone mais" id="addtarefa">
                         </div>
-                        <form action="/add" method="post" class="rounded pt-3" id="formtarefa">
+                        <form action="/addtarefa" method="post" class="rounded pt-3 mb-2" id="formtarefa">
                             <div class="row">
                                 <div class="col-9">
                                     <input type="text" class="form-control" placeholder="Nome da tarefa"
@@ -205,7 +205,7 @@
                                 </div>
                             </div>
                             <div class="pt-3">
-                                <textarea name="descricao" id="desc" cols="10" rows="5" class="form-control"
+                                <textarea name="descricao" id="descricao" cols="10" rows="5" class="form-control"
                                     placeholder="Descreva sua tarefa" maxlength="500"></textarea>
                             </div>
                             <div class="d-flex justify-content-end pt-2">
@@ -213,9 +213,36 @@
                                 <button class="btn btn-light" type="submit" id="btnsalvar">Salvar</button>
                             </div>
                         </form>
+                        {{#each post}}
+                        {{#dataValues}}
+                        <div class="card my-2">
+                            <div class="card-header">
+                                <div class="d-flex justify-content-between">
+                                    <input type="hidden" name="id" id="idtarefa" value="{{id_tarefa}}" class="form-control">
+                                    <h5 class="card-title">{{nome}}</h5>
+                                    <span class="fs-5 ciclos" id="{{id_tarefa}}">
+                                        0
+                                        <span class="fs-5">
+                                            /
+                                            {{est_ciclo}}
+                                        </span>
+                                    </span>
+                                </div>
+                                <span class="card-text">{{progresso}}</span>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">{{descricao}}</p>
+                                <div class="d-flex justify-content-end">
+                                    <a href="/excluirtarefa/{{id_tarefa}}" class="btn btn-dark mx-1">Excluir</a>
+                                    <a href="/editartarefa/{{id_tarefa}}" class="btn btn-dark mx-1">Editar</a>
+                                </div>
+                            </div>
+                        </div>
+                        {{/dataValues}}
+                        {{/each}}
                     </div>
                     <div class="tab-pane fade" id="projetostab" role="tabpanel" aria-labelledby="projetostab"
-                        tabindex="0">projetos ficam aqui</div>
+                        tabindex="0"></div>
                 </div>
             </div>
         </div>
