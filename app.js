@@ -47,6 +47,23 @@ app.get("/excluirtarefa/:id_tarefa", function (req, res){
     })
 })
 
+
+app.get("/updatestatus/:id_tarefa", function (req, res){
+    const id = req.params.id_tarefa
+
+    post.tarefas.update({
+        progresso : "Concluída"
+    }, {
+        where : {
+            id_tarefa : id
+        }
+    }).then(function(){
+        res.redirect("/")
+    }).catch(function(erro){
+        res.send("Erro ao atualizar: " + erro)
+    })
+})
+
 app.get("/conta", function (req, res){
     res.render("conta")
 })

@@ -215,24 +215,30 @@
                         </form>
                         {{#each post}}
                         {{#dataValues}}
-                        <div class="card my-2">
+                        <div class="card my-2" id="tarefa{{id_tarefa}}" onclick="teste(this.id)">
                             <div class="card-header">
                                 <div class="d-flex justify-content-between">
-                                    <input type="hidden" name="id" id="idtarefa" value="{{id_tarefa}}" class="form-control">
+                                    <input type="hidden" name="id" id="idtarefa" value="{{id_tarefa}}"
+                                        class="form-control">
                                     <h5 class="card-title">{{nome}}</h5>
-                                    <span class="fs-5 ciclos" id="{{id_tarefa}}">
-                                        0
-                                        <span class="fs-5">
+                                    <div class="d-flex gap-1">
+                                        <span class="fs-5 ciclos">
+                                            0
+                                        </span>
+                                        <span class="fs-5 estciclo">
                                             /
+                                        </span>
+                                        <span class="fs-5">
                                             {{est_ciclo}}
                                         </span>
-                                    </span>
+                                    </div>
                                 </div>
                                 <span class="card-text">{{progresso}}</span>
                             </div>
                             <div class="card-body">
                                 <p class="card-text">{{descricao}}</p>
                                 <div class="d-flex justify-content-end">
+                                    <a href="/updatestatus/{{id_tarefa}}" id="updatestatus" hidden></a>
                                     <a href="/excluirtarefa/{{id_tarefa}}" class="btn btn-dark mx-1">Excluir</a>
                                     <a href="/editartarefa/{{id_tarefa}}" class="btn btn-dark mx-1">Editar</a>
                                 </div>

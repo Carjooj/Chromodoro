@@ -5,6 +5,9 @@ let btnpausacurta = document.getElementById("btnpausacurta");
 let btnpausalonga = document.getElementById("btnpausalonga");
 let divciclo = document.getElementById("ciclo");
 let ciclomsg = document.getElementById("ciclomsg");
+let span = $(".card.my-2.cardclick").find("span")
+let cicloest;
+let btnupdatestatus = document.getElementById("updatestatus")
 let pomodoromsg = "Hora do foco!";
 let shortmsg = "Hora da pausa...";
 let longmsg = "Hora do descanso..."
@@ -52,6 +55,8 @@ if (minutes < 10) {
 }
 
 
+
+
 btnpausacurta.toggleAttribute("disabled");
 btnpausalonga.toggleAttribute("disabled");
 
@@ -59,6 +64,13 @@ btnpomodoro.onclick = function () {
   if (end) {
     ciclo += 1;
     divciclo.innerHTML = ciclo + "#"
+    span = $(".card.my-2.cardclick").find("span")[0]
+    cicloest = $(".card.my-2.cardclick").find("span")[2]
+    span.innerHTML = ciclo
+    console.log(span.innerHTML + "\n" + cicloest.innerHTML)
+    if (span.value === cicloest.value) {
+      btnupdatestatus.click()
+    }
     localStorage.setItem("ciclo", divciclo.innerHTML);
   }
   ciclomsg.innerHTML = pomodoromsg;
